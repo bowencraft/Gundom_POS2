@@ -21,9 +21,7 @@ public class CameraZoomIn : MonoBehaviour
         if (Input.GetAxis("Mouse ScrollWheel") > 0)
         {
             ZoomCamera(-speed);
-        }
-
-        if (Input.GetAxis("Mouse ScrollWheel") < 0)
+        }else if (Input.GetAxis("Mouse ScrollWheel") < 0)
         {
             ZoomCamera(speed);
         }
