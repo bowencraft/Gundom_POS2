@@ -4,64 +4,66 @@ using UnityEngine;
 
 public class MoveAndRotatePart : MonoBehaviour
 {
-    public GameObject prefab; // 指定的Prefab
+    //public GameObject prefab; // 指定的Prefab
     private GameObject currentPrefab;
     private Camera cam;
     public LayerMask layerMask; // 指定的层
     public string targetLayerName; // 放置后设置的层名称
 
+    public bool ChangePrefabPos = false;
+
     void Start()
     {
         cam = Camera.main;
-        CreateNewPrefab();
     }
 
     void Update()
     {
         MovePrefabWithRaycast();
         RotatePrefab();
-        //CheckForClick();
     }
 
     void MovePrefabWithRaycast()
     {
-        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
+        //prefab following mouse
+        if (ChangePrefabPos)
         {
-            // 将物品移动到射线击中的位置
-            currentPrefab.transform.position = hit.point;
+            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
+            {
+                // 将物品移动到射线击中的位置
+                currentPrefab.transform.position = hit.point;
+            }
         }
     }
 
     void RotatePrefab()
     {
-        if (Input.GetKey(KeyCode.W))
-            currentPrefab.transform.Rotate(Vector3.right, Time.deltaTime * 100);
-        if (Input.GetKey(KeyCode.S))
-            currentPrefab.transform.Rotate(Vector3.left, Time.deltaTime * 100);
-        if (Input.GetKey(KeyCode.A))
-            currentPrefab.transform.Rotate(Vector3.down, Time.deltaTime * 100);
-        if (Input.GetKey(KeyCode.D))
-            currentPrefab.transform.Rotate(Vector3.up, Time.deltaTime * 100);
-        if (Input.GetKey(KeyCode.Q))
-            currentPrefab.transform.Rotate(Vector3.back, Time.deltaTime * 100);
-        if (Input.GetKey(KeyCode.E))
-            currentPrefab.transform.Rotate(Vector3.forward, Time.deltaTime * 100);
+        //before the prefab is attached
+        if (ChangePrefabPos)
+        {
+            if (Input.GetKey(KeyCode.W))
+                currentPrefab.transform.Rotate(Vector3.right, Time.deltaTime * 100);
+            if (Input.GetKey(KeyCode.S))
+                currentPrefab.transform.Rotate(Vector3.left, Time.deltaTime * 100);
+            if (Input.GetKey(KeyCode.A))
+                currentPrefab.transform.Rotate(Vector3.down, Time.deltaTime * 100);
+            if (Input.GetKey(KeyCode.D))
+                currentPrefab.transform.Rotate(Vector3.up, Time.deltaTime * 100);
+            if (Input.GetKey(KeyCode.Q))
+                currentPrefab.transform.Rotate(Vector3.back, Time.deltaTime * 100);
+            if (Input.GetKey(KeyCode.E))
+                currentPrefab.transform.Rotate(Vector3.forward, Time.deltaTime * 100);
+        }
     }
 
-    public void CheckForClick()
+    public void CheckForClick(GameObject prefab)
     {
         //only trigger when click has been clicked from the InstantiatePart Script
         SetLayerRecursively(currentPrefab, LayerMask.NameToLayer(targetLayerName));
-        CreateNewPrefab();
-
-        //if (Input.GetMouseButtonDown(0) && Input.GetKeyDown(KeyCode.Space) )// 鼠标左键
-        //{
-        //    SetLayerRecursively(currentPrefab, LayerMask.NameToLayer(targetLayerName));
-        //    CreateNewPrefab();
-        //}
+        CreateNewPrefab(prefab);
     }
 
     void SetLayerRecursively(GameObject obj, int newLayer)
@@ -79,7 +81,7 @@ public class MoveAndRotatePart : MonoBehaviour
         }
     }
 
-    void CreateNewPrefab()
+    void CreateNewPrefab(GameObject prefab)
     {
         currentPrefab = Instantiate(prefab, Vector3.zero, Quaternion.identity);
     }
