@@ -5,9 +5,12 @@ using UnityEngine;
 
 public class CameraZoomIn : MonoBehaviour
 {
-    public float speed = 2f;
-    public float min = 20f;
-    public float max;
+    [SerializeField]
+    private float speed = 2f;
+    [SerializeField]
+    private float min = 20f;
+    [SerializeField]
+    private float max = 60f;
     Camera cam;
 
 
@@ -16,6 +19,7 @@ public class CameraZoomIn : MonoBehaviour
         cam = Camera.main;
         max = cam.fieldOfView;
     }
+
     void Update()
     {
         if (Input.GetAxis("Mouse ScrollWheel") > 0)
