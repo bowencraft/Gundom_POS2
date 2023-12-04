@@ -27,6 +27,8 @@ public class PlacementManager : MonoBehaviour
     public Material jointConnectedMaterial;
     public Material colliderOverlapMaterial;
 
+    private GameObject jointParent;
+
     //private Material[] 
 
     void Start()
@@ -35,6 +37,8 @@ public class PlacementManager : MonoBehaviour
         currentJointObject = Instantiate(jointPrefab);
         currentJoint = currentJointObject.GetComponent<JointObject>();
         currentJointObject.SetActive(false);
+
+        jointParent = GameObject.Find("JointParent");
     }
 
     void Update()
@@ -170,16 +174,35 @@ public class PlacementManager : MonoBehaviour
             currentPrefab.transform.rotation = joint.transform.rotation;
             currentPrefab.transform.parent = joint.transform;
 
+            foreach (JointObject goalJoint in currentComponent.goalJointList)
+            {
+                goalJoint.transform.parent = jointParent.transform;
+            }
+
             SetLayerRecursively(currentPrefab, 6);
             currentComponent.sourceJoint.connected = true;
+            currentComponent.sourceJoint.GetComponent<Renderer>().material = jointConnectedMaterial;
 
             joint.connected = true;
+            joint.GetComponent<Renderer>().material = jointConnectedMaterial;
+
+            StoreAndSwapMaterials(currentPrefab, jointConnectedMaterial);
+
+            Invoke("RestoreOriginalMaterials", 0.4f);
+
 
             currentPrefab = null;
 
             ExitPlacementMode();
             return true;
         }
+        if (currentComponent.IsCollidingWithComponents())
+        {
+            StoreAndSwapMaterials(currentPrefab, colliderOverlapMaterial);
+
+            Invoke("RestoreOriginalMaterials", 0.4f);
+        }
+
         return false;
     }
 
@@ -191,9 +214,9 @@ public class PlacementManager : MonoBehaviour
             //JointObject sourceJoint = currentComponent.sourceJoint;
             if (currentJoint.IsCollidingWithJoint())
             {
-                //Debug.Log("Collided!");
+                Debug.Log("Collided!");
                 JointObject goalJoint = currentJoint.getCollidingJoint();
-                if (!goalJoint.connected && goalJoint.jointType == currentJoint.jointType)
+                if (!goalJoint.connected && JointObject.ContainsJoint(currentJoint.jointType, goalJoint.jointType))
                 {
                     currentPrefab.transform.rotation = goalJoint.transform.rotation;
                     //currentPrefab.transform.Rotate(goalJoint.transform.rotation.eulerAngles - currentPrefab.transform.rotation.eulerAngles, 100f * Time.deltaTime);
@@ -208,5 +231,34 @@ public class PlacementManager : MonoBehaviour
         }
         return false;
 
+    }
+
+    private Dictionary<Renderer, Material[]> originalMaterials = new Dictionary<Renderer, Material[]>();
+
+
+    // 存储原始材质并替换为新材质
+    void StoreAndSwapMaterials(GameObject replaceObject, Material newMaterial)
+    {
+        Renderer[] renderers = replaceObject.GetComponentsInChildren<Renderer>();
+        foreach (Renderer renderer in renderers)
+        {
+            originalMaterials[renderer] = renderer.materials; // 存储原始材质
+            Material[] newMaterials = new Material[renderer.materials.Length];
+            for (int i = 0; i < newMaterials.Length; i++)
+            {
+                newMaterials[i] = newMaterial; // 设置新材质
+            }
+            renderer.materials = newMaterials; // 替换材质
+        }
+    }
+
+    // 恢复原始材质
+    public void RestoreOriginalMaterials()
+    {
+        foreach (KeyValuePair<Renderer, Material[]> entry in originalMaterials)
+        {
+            entry.Key.materials = entry.Value;
+        }
+        originalMaterials.Clear();
     }
 }

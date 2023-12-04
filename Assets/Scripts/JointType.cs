@@ -11,10 +11,16 @@ public enum JointType
     // 可以继续添加更多选项
 }
 
-//public class ExampleUsage
+//public class JointType
 //{
 //    // 使用自定义LayerMask
 //    public CustomLayerMask myLayerMask;
+
+//    public override bool Equals(object obj)
+//    {
+//        return obj is JointType type &&
+//               System.Collections.Generic.EqualityComparer<CustomLayerMask>.Default.Equals(myLayerMask, type.myLayerMask);
+//    }
 
 //    public void ExampleMethod()
 //    {

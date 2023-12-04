@@ -7,6 +7,8 @@ public class PlaceableComponent : MonoBehaviour
     private string targetTag = "Component";
     public JointObject sourceJoint;
 
+    public JointObject[] goalJointList;
+
     // 存储当前碰撞的对象集合
     private HashSet<GameObject> collidingObjects = new HashSet<GameObject>();
 

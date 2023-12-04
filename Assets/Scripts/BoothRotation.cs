@@ -26,7 +26,7 @@ public class BoothRotation : MonoBehaviour
 
                 while (hitObject != null)
                 {
-                    Debug.Log(hitObject);
+                    //Debug.Log(hitObject);
                     if (hitObject.gameObject == gameObject)
                     {
                         lastMousePosition = Input.mousePosition;

@@ -52,4 +52,14 @@ public class JointObject : MonoBehaviour
         }
         return null;
     }
+
+    public static bool ContainsJoint(JointType source, JointType target)
+    {
+        if ((target & source) != 0)
+        {
+            // 包含Option1
+            return true;
+        }
+        return false;
+    }
 }
