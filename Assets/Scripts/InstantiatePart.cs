@@ -6,19 +6,26 @@ using UnityEngine.EventSystems;
 public class InstantiatePart : MonoBehaviour
 {
     public GameObject prefabPart;
-    private MoveAndRotatePart prefabHandle;
+    private PlacementManager prefabHandle;
 
     void Start()
     {
-        prefabHandle = GameObject.Find("ControlManager").GetComponent<MoveAndRotatePart>();
+        prefabHandle = GameObject.Find("ControlManager").GetComponent<PlacementManager>();
+        Instantiate(prefabPart, transform);
+        GetComponent<MeshRenderer>().enabled = false;
     }
 
-    //mouse detecting 
-    void OnMouseDown()
+    public void StartPlacement()
     {
-        prefabHandle.ChangePrefabPos = true;
-        prefabHandle.CheckForClick(prefabPart);
+        prefabHandle.EnterPlacementMode(prefabPart);
     }
+
+    ////mouse detecting 
+    //void OnMouseDown()
+    //{
+    //    prefabHandle.ChangePrefabPos = true;
+    //    prefabHandle.CheckForClick(prefabPart);
+    //}
 
 
 }

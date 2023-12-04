@@ -21,6 +21,11 @@ public class MoveAndRotatePart : MonoBehaviour
     {
         MovePrefabWithRaycast();
         RotatePrefab();
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            CheckForClick();
+        }
     }
 
     void MovePrefabWithRaycast()
@@ -64,6 +69,15 @@ public class MoveAndRotatePart : MonoBehaviour
         //only trigger when click has been clicked from the InstantiatePart Script
         SetLayerRecursively(currentPrefab, LayerMask.NameToLayer(targetLayerName));
         CreateNewPrefab(prefab);
+    }
+
+    public void CheckForClick()
+    {
+        //only trigger when click has been clicked from the InstantiatePart Script
+        SetLayerRecursively(currentPrefab, LayerMask.NameToLayer(targetLayerName));
+        currentPrefab = null;
+        ChangePrefabPos = false;
+        //CreateNewPrefab(prefab);
     }
 
     void SetLayerRecursively(GameObject obj, int newLayer)

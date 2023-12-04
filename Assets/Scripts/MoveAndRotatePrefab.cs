@@ -51,7 +51,7 @@ public class MoveAndRotatePrefab : MonoBehaviour
 
     public void CheckForClick()
     {
-        if (Input.GetMouseButtonDown(0) && Input.GetKeyDown(KeyCode.Space))// 鼠标左键
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))// 鼠标左键
         {
             SetLayerRecursively(currentPrefab, LayerMask.NameToLayer(targetLayerName));
             CreateNewPrefab();
