@@ -169,6 +169,8 @@ public class PlacementManager : MonoBehaviour
             //currentPrefab.transform.Rotate(joint.transform.rotation.eulerAngles - currentPrefab.transform.rotation.eulerAngles, 10f * Time.deltaTime);
             currentPrefab.transform.rotation = joint.transform.rotation;
             currentPrefab.transform.parent = joint.transform;
+
+            SetLayerRecursively(currentPrefab, 6);
             currentComponent.sourceJoint.connected = true;
 
             joint.connected = true;
