@@ -7,9 +7,8 @@ public class DontDestroyOnLoad : MonoBehaviour
 {
     public static DontDestroyOnLoad robot;
     [SerializeField]
-    private bool refresh = false;
-
-    void Awake()
+    private GameObject OriginalModel;
+    void Start()
     {
         if (robot == null)
         {
@@ -19,38 +18,7 @@ public class DontDestroyOnLoad : MonoBehaviour
         else
         {
             Destroy(gameObject);
-            
         }
     }
-    void LateUpdate()
-    {
-        if(!refresh && SceneManager.GetActiveScene().name != "Showcase")
-        {
-            ConfirmRefresh();
-        }
-
-        if (refresh && SceneManager.GetActiveScene().name == "Showcase")
-        {
-            Invoke("Refresh", 0);
-            refresh = false;
-        }
-    }
-    public void Refresh()
-    {
-        // restart
-        print("restart");
-        if (SceneManager.GetActiveScene().name != "Showcase")
-        {
-            Destroy(gameObject);
-            Instantiate(gameObject);
-        }
-    }
-
-    public void ConfirmRefresh()
-    {
-        refresh = true;
-    }
-
-
 
 }
