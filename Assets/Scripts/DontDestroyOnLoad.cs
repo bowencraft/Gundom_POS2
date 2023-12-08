@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 public class DontDestroyOnLoad : MonoBehaviour
 {
     public static DontDestroyOnLoad robot;
-    public bool refresh = false;
+    [SerializeField]
+    private bool refresh = false;
 
     void Awake()
     {
