@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -820,7 +820,7 @@ GameObject:
   - component: {fileID: 360416123}
   - component: {fileID: 360416124}
   m_Layer: 6
-  m_Name: MainObject
+  m_Name: === Robot ===
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -833,15 +833,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 360416120}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.56, y: -1.92, z: 0.37}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.25, y: 4.584194, z: -7.3884296}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1490442727}
   - {fileID: 1974065155}
   - {fileID: 1234946330}
-  m_Father: {fileID: 1346007052}
+  m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &360416122
@@ -1136,7 +1136,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -10.218794, y: 28.875496}
+  m_AnchoredPosition: {x: -8.2, y: 28.875496}
   m_SizeDelta: {x: 85.1404, y: 45.4957}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &520896378
@@ -3432,7 +3432,6 @@ Transform:
   - {fileID: 705507995}
   - {fileID: 1708562433}
   - {fileID: 1651439649}
-  - {fileID: 360416121}
   - {fileID: 1478697056}
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -3828,7 +3827,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1346007052}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1478697057
 MonoBehaviour:
@@ -5049,7 +5048,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 28, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 54.2, y: -2.98}
+  m_AnchoredPosition: {x: 52.5, y: -2.98}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2083241783
