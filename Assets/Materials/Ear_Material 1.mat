@@ -7,20 +7,19 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CelThresholdAquarelle
+  m_Name: Ear_Material 1
   m_Shader: {fileID: 4800000, guid: 371dee73dabc89140878360402049bfc, type: 3}
   m_ValidKeywords:
   - _MK_ARTISTIC_ANIMATION_STUTTER
-  - _MK_ARTISTIC_PROJECTION_SCREEN_SPACE
   - _MK_DETAIL_BLEND_MIX
-  - _MK_FRESNEL_HIGHLIGHTS
-  - _MK_LIGHT_RAMP
+  - _MK_ENVIRONMENT_REFLECTIONS_ADVANCED
+  - _MK_LIGHT_BANDED
   - _MK_SPECULAR_ISOTROPIC
-  - _MK_THRESHOLD_MAP
+  - _MK_WRAPPED_DIFFUSE
   m_InvalidKeywords:
-  - _FRESNELHIGHLIGHTS_ON
   - _MK_RECEIVE_SHADOWS
   - _RECEIVESHADOWS_ON
+  - _WRAPPEDLIGHTING_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -57,7 +56,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DiffuseRamp:
-        m_Texture: {fileID: 2800000, guid: f3fa8cf211559454183b5ceb32fee6dd, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DissolveBorderRamp:
@@ -69,7 +68,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DrawnMap:
-        m_Texture: {fileID: 2800000, guid: fdee129c844a37f4baf59b2976e96f5e, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
@@ -89,11 +88,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _HatchingBrightMap:
-        m_Texture: {fileID: 2800000, guid: 70d2187724fd99b4f82f8b76f78d7a70, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _HatchingDarkMap:
-        m_Texture: {fileID: 2800000, guid: 6f99548aaa8653c4ea98f12998b0c351, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _HeightMap:
@@ -157,7 +156,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecularRamp:
-        m_Texture: {fileID: 2800000, guid: f3fa8cf211559454183b5ceb32fee6dd, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ThicknessMap:
@@ -165,7 +164,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ThresholdMap:
-        m_Texture: {fileID: 2800000, guid: 2892d50d942eebf45ae470d621e4b104, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _VertexAnimationMap:
@@ -177,11 +176,11 @@ Material:
     - _AdvancedTab: 1
     - _AlbedoMapIntensity: 1
     - _AlphaClipping: 0
-    - _AlphaCutoff: 0.486
+    - _AlphaCutoff: 0.5
     - _Anisotropy: 0
     - _Artistic: 0
     - _ArtisticFrequency: 1
-    - _ArtisticProjection: 1
+    - _ArtisticProjection: 0
     - _Blend: 0
     - _BlendDst: 0
     - _BlendDstAlpha: 0
@@ -191,40 +190,40 @@ Material:
     - _BumpScale: 1
     - _ColorGrading: 0
     - _Contrast: 1
-    - _Cutoff: 0.486
+    - _Cutoff: 0.5
     - _DetailBlend: 0
     - _DetailMix: 0.5
     - _DetailNormalMapIntensity: 1
     - _DetailNormalMapScale: 1
     - _Diffuse: 0
-    - _DiffuseSmoothness: 1
-    - _DiffuseThresholdOffset: 0.75
+    - _DiffuseSmoothness: 0
+    - _DiffuseThresholdOffset: 0.25
     - _Dissolve: 0
     - _DissolveAmount: 0.5
     - _DissolveBorderSize: 0.25
     - _DissolveMapScale: 1
     - _DrawnClampMax: 1
     - _DrawnClampMin: 0
-    - _DrawnMapScale: 8.3
+    - _DrawnMapScale: 1
     - _DstBlend: 0
-    - _EnvironmentReflections: 0
-    - _FresnelHighlights: 1
+    - _EnvironmentReflections: 2
+    - _FresnelHighlights: 0
     - _GlossMapScale: 1
-    - _Glossiness: 0.5
+    - _Glossiness: 0
     - _GlossyReflections: 1
     - _GoochRampIntensity: 0.5
-    - _HatchingMapScale: 5
-    - _IndirectFade: 1
-    - _Initialized: 1
+    - _HatchingMapScale: 1
+    - _IndirectFade: 0.1
+    - _Initialized: 0
     - _InputTab: 1
     - _Iridescence: 0
     - _IridescenceSize: 1
     - _IridescenceSmoothness: 0.5
-    - _IridescenceThresholdOffset: 0.25
-    - _Light: 3
+    - _IridescenceThresholdOffset: 0
+    - _Light: 2
     - _LightBands: 4
     - _LightBandsScale: 0.5
-    - _LightThreshold: 0.22
+    - _LightThreshold: 0.5
     - _LightTransmission: 0
     - _LightTransmissionDistortion: 0.25
     - _LightTransmissionIntensity: 1
@@ -243,7 +242,6 @@ Material:
     - _OutlineNoise: 0
     - _OutlineSize: 100
     - _OutlineTab: 1
-    - _OverwriteBlend: 0
     - _Parallax: 0.02
     - _ReceiveShadows: 1
     - _RenderFace: 2
@@ -259,9 +257,9 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _Specular: 1
     - _SpecularHighlights: 1
-    - _SpecularIntensity: 10
-    - _SpecularSmoothness: 1
-    - _SpecularThresholdOffset: 0.75
+    - _SpecularIntensity: 1
+    - _SpecularSmoothness: 0
+    - _SpecularThresholdOffset: 0.25
     - _SrcBlend: 1
     - _Stencil: 1
     - _StencilComp: 8
@@ -273,23 +271,23 @@ Material:
     - _StencilZFail: 0
     - _StylizeTab: 1
     - _Surface: 0
-    - _ThresholdMapScale: 5
+    - _ThresholdMapScale: 1
     - _UVSec: 0
     - _VertexAnimation: 0
     - _VertexAnimationIntensity: 0.05
     - _VertexAnimationStutter: 0
     - _Workflow: 0
-    - _WrappedLighting: 0
+    - _WrappedLighting: 1
     - _ZTest: 4
     - _ZWrite: 1
     m_Colors:
-    - _AlbedoColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _AlbedoColor: {r: 0.8696252, g: 0.36320752, b: 1, a: 1}
+    - _Color: {r: 0.8696252, g: 0.3632075, b: 1, a: 1}
     - _DetailColor: {r: 1, g: 1, b: 1, a: 1}
     - _DissolveBorderColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _GoochBrightColor: {r: 1, g: 1, b: 1, a: 1}
-    - _GoochDarkColor: {r: 0.01744394, g: 0.3945874, b: 0.5283019, a: 1}
+    - _GoochBrightColor: {r: 1, g: 0.9764706, b: 0, a: 1}
+    - _GoochDarkColor: {r: 0.8509804, g: 0, b: 1, a: 1}
     - _IridescenceColor: {r: 1, g: 1, b: 1, a: 0.5}
     - _LightTransmissionColor: {r: 1, g: 0.65, b: 0, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}

@@ -62,4 +62,10 @@ public class JointObject : MonoBehaviour
         }
         return false;
     }
+
+    private void Start()
+    {
+        //if (GetComponent<SphereCollider>() != null) GetComponent<SphereCollider>().isTrigger = true;
+        //if (GetComponent<BoxCollider>() != null) GetComponent<BoxCollider>().isTrigger = true;
+    }
 }
