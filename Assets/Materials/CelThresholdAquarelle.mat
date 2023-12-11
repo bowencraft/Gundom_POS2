@@ -15,7 +15,6 @@ Material:
   - _MK_DETAIL_BLEND_MIX
   - _MK_FRESNEL_HIGHLIGHTS
   - _MK_LIGHT_RAMP
-  - _MK_OUTLINE_HULL_CLIP
   - _MK_SPECULAR_ISOTROPIC
   - _MK_THRESHOLD_MAP
   m_InvalidKeywords:
@@ -237,12 +236,12 @@ Material:
     - _OcclusionMapIntensity: 1
     - _OcclusionStrength: 1
     - _OptionsTab: 1
-    - _Outline: 3
+    - _Outline: 1
     - _OutlineData: 0
     - _OutlineFadeMax: 2
     - _OutlineFadeMin: 0.25
     - _OutlineNoise: 0
-    - _OutlineSize: 5
+    - _OutlineSize: 100
     - _OutlineTab: 1
     - _OverwriteBlend: 0
     - _Parallax: 0.02
