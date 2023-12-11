@@ -11,14 +11,7 @@ public class CameraZoomIn : MonoBehaviour
     private float min = 20f;
     [SerializeField]
     public float max = 60f;
-    Camera cam;
 
-
-    void Start()
-    {
-        cam = Camera.main;
-        max = cam.fieldOfView;
-    }
 
     void Update()
     {
@@ -34,7 +27,7 @@ public class CameraZoomIn : MonoBehaviour
 
     void ZoomCamera(float change)
     {
-        float newView = Mathf.Clamp(cam.fieldOfView + change, min, max);
-        cam.fieldOfView = newView;
+        float newView = Mathf.Clamp(Camera.main.fieldOfView + change, min, max);
+        Camera.main.fieldOfView = newView;
     }
 }
