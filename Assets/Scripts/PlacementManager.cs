@@ -29,6 +29,10 @@ public class PlacementManager : MonoBehaviour
 
     private GameObject jointParent;
 
+    //audio
+    public AudioClip audioConfirm;
+    private AudioSource audioSource;
+
     //private Material[] 
 
     void Start()
@@ -39,6 +43,9 @@ public class PlacementManager : MonoBehaviour
         currentJointObject.SetActive(false);
 
         jointParent = GameObject.Find("JointParent");
+
+        //audio
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -67,6 +74,7 @@ public class PlacementManager : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0))
             {
+                //PlayAudioConfirm();
                 ConfirmPlacement();
             }
 
@@ -169,6 +177,7 @@ public class PlacementManager : MonoBehaviour
     {
         if (TryAbsorptJoint() && !currentComponent.IsCollidingWithComponents())
         {
+            PlayAudioConfirm();
             JointObject joint = currentJoint.getCollidingJoint();
             //currentPrefab.transform.Rotate(joint.transform.rotation.eulerAngles - currentPrefab.transform.rotation.eulerAngles, 10f * Time.deltaTime);
             currentPrefab.transform.rotation = joint.transform.rotation;
@@ -260,5 +269,11 @@ public class PlacementManager : MonoBehaviour
             entry.Key.materials = entry.Value;
         }
         originalMaterials.Clear();
+    }
+
+    //Play Audio
+    private void PlayAudioConfirm()
+    {
+        audioSource.PlayOneShot(audioConfirm);
     }
 }
