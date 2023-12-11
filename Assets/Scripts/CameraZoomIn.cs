@@ -10,7 +10,7 @@ public class CameraZoomIn : MonoBehaviour
     [SerializeField]
     private float min = 20f;
     [SerializeField]
-    public float max = 60f;
+    private float max = 60f;
     Camera cam;
 
 
@@ -25,8 +25,7 @@ public class CameraZoomIn : MonoBehaviour
         if (Input.GetAxis("Mouse ScrollWheel") > 0)
         {
             ZoomCamera(-speed);
-        }
-        else if (Input.GetAxis("Mouse ScrollWheel") < 0)
+        }else if (Input.GetAxis("Mouse ScrollWheel") < 0)
         {
             ZoomCamera(speed);
         }
@@ -34,7 +33,7 @@ public class CameraZoomIn : MonoBehaviour
 
     void ZoomCamera(float change)
     {
-        float newView = Mathf.Clamp(cam.fieldOfView + change, min, max);
-        cam.fieldOfView = newView;
+        float changeView = cam.fieldOfView + change;
+        Camera.main.fieldOfView = Mathf.Clamp(changeView, min, max);
     }
 }
