@@ -4,20 +4,17 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    private static AudioManager instance;
+    public AudioClip audioClip;
+    private AudioSource audioSource;
 
-    private void Awake()
+    void Start()
     {
-        if (instance == null)
-        {
-            // If this is the first instance, make it the singleton
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            // If another instance already exists, destroy this one
-            Destroy(gameObject);
-        }
+        audioSource = GetComponent<AudioSource>();
+    }
+
+    public void PlayOneShot()
+    {
+        audioSource.PlayOneShot(audioClip);
+
     }
 }
