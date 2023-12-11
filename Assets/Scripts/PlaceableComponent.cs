@@ -37,4 +37,26 @@ public class PlaceableComponent : MonoBehaviour
     {
         return collidingObjects.Count > 0;
     }
+
+    //public float forceAmount = 10f;
+    //public bool isBody = false;
+    //private Rigidbody rb;
+
+    //private void Start()
+    //{
+    //    if (sourceJoint.jointType == JointType.Body)
+    //    {
+    //        isBody = true;
+    //        rb = GetComponent<Rigidbody>();
+    //    }
+    //}
+
+    //private void Update()
+    //{
+    //    if (isBody & Input.GetKeyDown(KeyCode.R))
+    //    {
+    //        Vector3 forwardForce = transform.forward * forceAmount;
+    //        rb.AddForce(forwardForce);
+    //    }
+    //}
 }
