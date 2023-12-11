@@ -7380,6 +7380,7 @@ GameObject:
   - component: {fileID: 117148255}
   - component: {fileID: 117148257}
   - component: {fileID: 117148258}
+  - component: {fileID: 117148259}
   m_Layer: 0
   m_Name: SIde Camera
   m_TagString: MainCamera
@@ -7460,6 +7461,14 @@ MonoBehaviour:
   speed: 2
   min: 20
   max: 60
+--- !u!124 &117148259
+Behaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 117148254}
+  m_Enabled: 1
 --- !u!1 &118497753
 GameObject:
   m_ObjectHideFlags: 0
@@ -61502,6 +61511,7 @@ GameObject:
   - component: {fileID: 1101583085}
   - component: {fileID: 1101583087}
   - component: {fileID: 1101583088}
+  - component: {fileID: 1101583089}
   m_Layer: 0
   m_Name: High Angle Camera
   m_TagString: MainCamera
@@ -61582,6 +61592,14 @@ MonoBehaviour:
   speed: 2
   min: 20
   max: 60
+--- !u!124 &1101583089
+Behaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1101583084}
+  m_Enabled: 1
 --- !u!1 &1101808254
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,27 +14,29 @@ public class CameraZoomIn : MonoBehaviour
     Camera cam;
 
 
-    void Start()
+    void Awake()
     {
         cam = Camera.main;
-        max = cam.fieldOfView;
+        //max = cam.fieldOfView;
     }
 
     void Update()
     {
         if (Input.GetAxis("Mouse ScrollWheel") > 0)
         {
+            print("zoomout");
             ZoomCamera(-speed);
         }
         else if (Input.GetAxis("Mouse ScrollWheel") < 0)
         {
+            print("zoomin");
             ZoomCamera(speed);
         }
     }
 
     void ZoomCamera(float change)
     {
-        float newView = Mathf.Clamp(cam.fieldOfView + change, min, max);
-        cam.fieldOfView = newView;
+        float newView = Mathf.Clamp(Camera.main.fieldOfView + change, min, max);
+        Camera.main.fieldOfView = newView;
     }
 }
